@@ -31,7 +31,7 @@ sealed class ApolloGraphQLClientMessage {
       return okio.Buffer().also { buffer ->
         JsonWriter.of(buffer)
             .beginObject()
-            .name("type").value("start")
+            .name("type").value("subscribe")
             .name("id").value(request.requestUuid.toString())
             .name("payload").jsonValue(request.operation.composeRequestBody(request.scalarTypeAdapters).utf8())
             .endObject()
@@ -46,7 +46,7 @@ sealed class ApolloGraphQLClientMessage {
       return okio.Buffer().also { buffer ->
         JsonWriter.of(buffer)
             .beginObject()
-            .name("type").value("stop")
+            .name("type").value("complete")
             .name("id").value(uuid.toString())
             .endObject()
             .close()
