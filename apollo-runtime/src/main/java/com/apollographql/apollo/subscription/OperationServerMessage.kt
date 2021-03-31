@@ -40,6 +40,7 @@ sealed class OperationServerMessage {
     companion object {
       const val TYPE = "next"
     }
+
   }
 
   class Error(@JvmField val id: String?, @JvmField val payload: Map<String, Any?>) : OperationServerMessage() {
