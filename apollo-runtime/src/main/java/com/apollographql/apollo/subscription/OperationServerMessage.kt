@@ -38,7 +38,7 @@ sealed class OperationServerMessage {
     override fun hashCode(): Int = 31 * (id?.hashCode() ?: 0) + payload.hashCode()
 
     companion object {
-      const val TYPE = "data"
+      const val TYPE = "next"
     }
   }
 
